@@ -17,6 +17,9 @@ services:
     build:
       context: .
       dockerfile: deploy/Dockerfile.backend
+      # Build-only workaround for this VPS's slow bridge downloads.
+      # Runtime services remain on the private Compose network below.
+      network: host
     environment:
       DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY:?Set DJANGO_SECRET_KEY in .env}
       DJANGO_DEBUG: "false"
