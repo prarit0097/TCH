@@ -12,3 +12,4 @@ backend/*.sqlite3
 backend/staticfiles
 **/__pycache__
 **/*.pyc
+backups
