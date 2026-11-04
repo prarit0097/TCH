@@ -4,8 +4,8 @@ import { hospital } from '../data/site';
 ---
 <footer class="footer">
   <div class="container footer-main">
-    <div><a href="/" class="footer-brand">The Circadian Hospital</a><p>A different rhythm of care.<br/>Sector 89, Faridabad.</p><a class="footer-phone" href={`tel:${hospital.phone}`}>{hospital.displayPhone}</a></div>
-    <div><h2>Explore</h2><a href="/about/">Our hospital</a><a href="/dr-biswaroop-roy-chowdhury/">Meet Dr BRC</a><a href="/dip-diet/">DIP Diet</a><a href="/journal/">Health journal</a></div>
+    <div><a href="/" class="footer-brand"><img src="/brand/circadian-logo-256.webp" alt="Dr BRC Circadian Hospital logo" width="88" height="88" loading="lazy"/><span>Dr BRC<br/>Circadian Hospital</span></a><p>250 beds. Sector 89, Faridabad.<br/>Food, daily rhythms and informed care.</p><a class="footer-phone" href={`tel:${hospital.phone}`}>{hospital.displayPhone}</a></div>
+    <div><h2>Explore</h2><a href="/about/">Our hospital</a><a href="/dr-biswaroop-roy-chowdhury/">Meet Dr BRC</a><a href="/dip-diet/">DIP Diet</a><a href="/circadian-approach/">Circadian approach</a><a href="/resources/">Official resources</a><a href="/gallery/">Dr BRC gallery</a></div>
     <div><h2>Plan your visit</h2><a href="/patient-guide/">Patient guide</a><a href="/contact/">Contact reception</a><a href={hospital.maps} target="_blank" rel="noopener noreferrer">Find our address <Icon name="northeast" size={15}/></a><a href={hospital.whatsapp} target="_blank" rel="noopener noreferrer">Message on WhatsApp</a></div>
     <div class="footer-address"><h2>Find us in Faridabad</h2><p>{hospital.address}</p><p class="small">Please confirm availability and visit arrangements with reception.</p></div>
   </div>

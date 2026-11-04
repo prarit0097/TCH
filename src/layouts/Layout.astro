@@ -1,5 +1,4 @@
 ---
-import '@fontsource/prata/latin-400.css';
 import '@fontsource/manrope/latin-400.css';
 import '@fontsource/manrope/latin-500.css';
 import '@fontsource/manrope/latin-700.css';
@@ -8,10 +7,10 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { hospital } from '../data/site';
 interface Props { title: string; description: string; image?: string; isArticle?: boolean }
-const { title, description, image = '/images/circadian-forest.webp', isArticle = false } = Astro.props;
+const { title, description, image = '/brand/circadian-logo-512.png', isArticle = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, hospital.domain).href;
 const indexable = import.meta.env.PUBLIC_INDEXABLE === 'true';
-const schema = [{ '@context': 'https://schema.org', '@type': 'Hospital', '@id': `${hospital.domain}/#hospital`, name: hospital.name, url: hospital.domain, telephone: hospital.phone, address: { '@type': 'PostalAddress', streetAddress: 'Sector 89, Tikawali Road, opposite Modern Delhi International Public School', addressLocality: 'Faridabad', addressRegion: 'Haryana', addressCountry: 'IN' } }, ...(Astro.url.pathname === '/' ? [] : [{ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: hospital.domain + '/' }, { '@type': 'ListItem', position: 2, name: title, item: canonical }] }])];
+const schema = [{ '@context': 'https://schema.org', '@type': 'Hospital', '@id': `${hospital.domain}/#hospital`, name: hospital.name, alternateName: 'Dr BRC Circadian Hospital', logo: `${hospital.domain}/brand/circadian-logo-512.webp`, image: `${hospital.domain}/brand/circadian-logo-512.png`, url: hospital.domain, telephone: hospital.phone, address: { '@type': 'PostalAddress', streetAddress: 'Sector 89, Tikawali Road, opposite Modern Delhi International Public School', addressLocality: 'Faridabad', addressRegion: 'Haryana', addressCountry: 'IN' } }, ...(Astro.url.pathname === '/' ? [] : [{ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: hospital.domain + '/' }, { '@type': 'ListItem', position: 2, name: title, item: canonical }] }])];
 ---
 <!doctype html>
 <html lang="en-IN">
@@ -19,10 +18,10 @@ const schema = [{ '@context': 'https://schema.org', '@type': 'Hospital', '@id': 
     <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>{title} | The Circadian Hospital</title><meta name="description" content={description}/><link rel="canonical" href={canonical}/>
     <meta name="robots" content={indexable ? 'index, follow, max-image-preview:large' : 'noindex, nofollow'}/>
-    <meta name="theme-color" content="#193e35"/><meta name="color-scheme" content="light dark"/>
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
+    <meta name="theme-color" content="#ac2533"/><meta name="color-scheme" content="light dark"/>
+    <link rel="icon" href="/favicon.png" type="image/png"/><link rel="apple-touch-icon" href="/brand/circadian-logo-256.webp"/>
     <meta property="og:type" content={isArticle ? 'article' : 'website'}/><meta property="og:site_name" content={hospital.name}/><meta property="og:title" content={title}/><meta property="og:description" content={description}/><meta property="og:url" content={canonical}/><meta property="og:image" content={new URL(image, hospital.domain).href}/><meta property="og:locale" content="en_IN"/>
-    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:card" content="summary"/>
     <script is:inline>try { const saved = localStorage.getItem('circadian-theme'); document.documentElement.dataset.theme = saved === 'light' || saved === 'dark' ? saved : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); } catch { document.documentElement.dataset.theme = 'light'; }</script>
     <script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\\u003c')}/>
   </head>

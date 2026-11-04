@@ -71,7 +71,7 @@ document.addEventListener("click", (event) => {
   )
     closeMenu();
 });
-matchMedia("(min-width: 901px)").addEventListener("change", (event) => {
+matchMedia("(min-width: 951px)").addEventListener("change", (event) => {
   if (event.matches) closeMenu();
 });
 

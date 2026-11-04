@@ -47,12 +47,9 @@ export const pages: ContentPage[] = [
     title: "About our 250-bed hospital in Faridabad",
     description:
       "Meet The Circadian Hospital in Sector 89, Faridabad. Learn about our 250-bed hospital, Dr BRC and our focus on food, daily routine and patient information.",
-    heading: "A hospital with a different rhythm.",
+    heading: "Dr BRC’s hospital, here in Faridabad.",
     intro:
-      "The Circadian Hospital is a 250-bed hospital in Sector 89, Faridabad. Our introduction begins with a simple idea: daily habits deserve a place in conversations about health.",
-    image: "/images/morning-path.webp",
-    alt: "Morning light on a wooded walking path",
-    caption: "Nature photograph for illustration; not the hospital grounds.",
+      "Owned and run by Dr Biswaroop Roy Chowdhury, The Circadian Hospital is an operational 250-bed hospital in Sector 89, Faridabad. Learn about Dr BRC’s nutrition and circadian approach, and speak with our team about planning your visit.",
     sections: [
       {
         title: "Here in Faridabad",
@@ -60,7 +57,7 @@ export const pages: ContentPage[] = [
       },
       {
         title: "Food, routine and informed choices",
-        text: "This website introduces Dr BRC’s DIP Diet framework and the role of daily rhythms in health education. Any dietary or clinical decision should account for your medical history and current treatment.",
+        text: "Dr BRC’s work brings attention to food, meal patterns and daily routines. Explore our introductions to the DIP Diet and Circadian Chart, with links to his published work. Your medical history and current treatment remain essential to any individual care decision.",
       },
       {
         title: "A clear first conversation",
@@ -73,24 +70,24 @@ export const pages: ContentPage[] = [
     title: "Dr Biswaroop Roy Chowdhury (Dr BRC)",
     description:
       "Learn about Dr Biswaroop Roy Chowdhury, the creator of the DIP Diet, and the approach behind The Circadian Hospital in Faridabad.",
-    heading: "The thinking behind the rhythm.",
+    heading: "Meet Dr Biswaroop Roy Chowdhury.",
     intro:
-      "Dr Biswaroop Roy Chowdhury, known as Dr BRC, is the creator of the DIP Diet. His work explores nutrition, daily habits and health education.",
+      "Dr Biswaroop Roy Chowdhury, known as Dr BRC, owns and runs The Circadian Hospital. An author and health educator, he developed the DIP Diet framework and writes about nutrition, daily routines and his Circadian Chart.",
     image: "/images/dr-brc.webp",
     alt: "Dr Biswaroop Roy Chowdhury",
     caption: "Portrait sourced from Dr BRC’s official website.",
     sections: [
       {
-        title: "An approach built around everyday life",
-        text: "His official biography describes his work as a researcher, author and health educator, alongside his involvement in clinics, hospitals and training. The hospital’s association with Dr BRC is supplied by its management.",
+        title: "Background and published work",
+        text: "His official biography describes an engineering background, postgraduate study in diabetes and an honorary PhD in diabetes and chronic kidney disease. It also outlines his involvement in health research, books, training and a network of clinics and hospitals. The honorary doctorate is distinct from a medical degree or specialist registration.",
       },
       {
         title: "DIP Diet and the Circadian Chart",
-        text: "The DIP Diet is his plant-based dietary framework. His Circadian Chart connects his approach to everyday routines. These are attributed approaches; general circadian science does not establish the effectiveness of any particular treatment.",
+        text: "His DIP Diet emphasizes whole-food, plant-based eating. The Circadian Doctor introduces his Circadian Chart and its combination of daily-rhythm concepts with Ayurvedic Panchkarma. Our resource pages offer a starting point for reading his work and discussing questions with the hospital team.",
       },
       {
         title: "Know who will be treating you",
-        text: "Please ask reception for the treating clinician’s name, qualifications and availability. A visit request does not guarantee a personal consultation with Dr BRC. Website information is educational and does not replace individual medical assessment.",
+        text: "Reception can confirm who will assess you and whether a personal consultation with Dr BRC is available. Website information supports preparation for that conversation; it does not replace individual medical assessment.",
       },
     ],
     sources: [
@@ -104,17 +101,25 @@ export const pages: ContentPage[] = [
     slug: "dip-diet",
     title: "DIP Diet by Dr BRC — a patient introduction",
     description:
-      "An introduction to Dr BRC’s plant-based DIP Diet: whole foods, everyday choices and why individual nutritional advice matters. Contact our Faridabad reception.",
+      "Understand the three steps of Dr BRC’s published DIP Diet framework: fruit-focused mornings, a two-plate meal structure and food choices. Read the official guide.",
     heading: "Whole foods. Thoughtful choices.",
     intro:
-      "The DIP Diet is a plant-based nutrition framework developed by Dr Biswaroop Roy Chowdhury. Begin by understanding the idea, then discuss what is appropriate for you.",
+      "DIP stands for Disciplined and Intelligent Person’s Diet. Developed by Dr Biswaroop Roy Chowdhury, it is a whole-food, plant-based framework with three published steps. This overview explains the system; an individual plan needs assessment.",
     image: "/images/nutrition-apples.webp",
     alt: "Fresh apples collected in a woven basket",
     caption: "Whole-food illustration, not an individual diet prescription.",
     sections: [
       {
-        title: "What the framework focuses on",
-        text: "Dr BRC’s published approach emphasizes plant foods and limiting highly processed foods. This page introduces that philosophy without prescribing a fixed quantity, fasting schedule or treatment plan.",
+        title: "Step 1: a fruit-focused morning",
+        text: "The published framework begins with a variety of fruit before noon. The original guide includes body-weight-based quantities; discuss portions and suitability with your clinician or dietitian rather than treating a website formula as your prescription.",
+      },
+      {
+        title: "Step 2: the two-plate meal",
+        text: "For lunch and dinner, the guide describes vegetables and salad first, followed by home-cooked vegetarian food with little salt and oil. It also emphasizes an earlier evening meal. Your care team should assess any change to meal timing.",
+      },
+      {
+        title: "Step 3: food choices and daily habits",
+        text: "The framework limits refined and packaged foods and excludes animal foods, including dairy. Its guide also discusses daylight and plant-based snacks. Nutritional needs and existing care should guide how these ideas apply to you.",
       },
       {
         title: "Your needs come first",
@@ -137,7 +142,7 @@ export const pages: ContentPage[] = [
     sources: [
       {
         label: "DIP Diet: the creator’s description",
-        url: "https://biswaroop.com/dip-diet-plan/",
+        url: "https://biswaroop.com/dipdiet/",
       },
       {
         label: "NIDDK: healthy living with diabetes",
@@ -153,9 +158,6 @@ export const pages: ContentPage[] = [
     heading: "Health has a daily rhythm.",
     intro:
       "Circadian rhythms are changes that follow a roughly 24-hour cycle. Light and darkness are major signals; food, activity and other factors also play a role.",
-    image: "/images/circadian-forest.webp",
-    alt: "Sunlight reaching through a green forest canopy",
-    caption: "Illustrative nature photography, not the hospital campus.",
     sections: [
       {
         title: "Understanding the body clock",
@@ -167,7 +169,11 @@ export const pages: ContentPage[] = [
       },
       {
         title: "Dr BRC’s Circadian Chart",
-        text: "Dr BRC describes his Circadian Chart in his published work. We identify that framework as his approach rather than treating it as proof of specific treatment outcomes. Ask the treating professional how any recommendation applies to your needs.",
+        text: "In The Circadian Doctor, Dr BRC introduces a Circadian Chart combining daily-rhythm concepts with Ayurvedic Panchkarma. His official consultation material describes a written chart alongside nutrition guidance. Ask our hospital team which elements are available locally and how an individual plan would be assessed.",
+      },
+      {
+        title: "Prepare for a conversation about your routine",
+        text: "Note when you usually sleep, eat and work, along with any difficulties maintaining a routine. Bring your prescriptions and relevant reports. The team can explain the assessment and the recommendations appropriate to your circumstances.",
       },
     ],
     sources: [
@@ -177,8 +183,69 @@ export const pages: ContentPage[] = [
       },
       {
         label: "Dr BRC’s published Circadian Doctor",
-        url: "https://biswaroop.com/wp-content/uploads/2023/12/The-Circadian-Doctor-ebook_c.pdf",
+        url: "https://biswaroop.com/product/the-circadian-doctor/",
       },
+      {
+        label: "Dr BRC’s official online consultation overview",
+        url: "https://biswaroop.com/vopd/",
+      },
+    ],
+  },
+  {
+    slug: "resources",
+    title: "Dr BRC resources: nutrition, daily routines and reading",
+    description:
+      "Explore Dr BRC’s official DIP Diet guide, Circadian Doctor book, ebooks and publication archives. Educational reading for patients and families.",
+    heading: "Read more about the approach.",
+    intro:
+      "Start with an introduction to the DIP Diet or Dr BRC’s Circadian Chart, then explore his wider publication library. These links open resources on his official website.",
+    sections: [
+      {
+        title: "Start with the framework",
+        text: "The official DIP Diet guide explains its three-step meal structure. The Circadian Doctor introduces Dr BRC’s Circadian Chart. Read them as descriptions of his approach, and bring questions about your own circumstances to your treating professional.",
+      },
+      {
+        title: "Books and magazines",
+        text: "The official ebook collection includes Hindi and English reading. BISWAS provides a dated magazine archive with links in several languages. These publications contain the authors’ perspectives; they are educational resources rather than an individual care plan.",
+      },
+      {
+        title: "Using external resources",
+        text: "Availability, purchase terms and download arrangements belong to the linked publisher. Do not change prescribed treatment based on a book, video or article. Contact our Faridabad reception for hospital appointments rather than using an external online-service form.",
+      },
+    ],
+    sources: [
+      { label: "Official DIP Diet guide", url: "https://biswaroop.com/dipdiet/" },
+      { label: "The Circadian Doctor", url: "https://biswaroop.com/product/the-circadian-doctor/" },
+      { label: "Free ebook collection", url: "https://biswaroop.com/free_e_book/" },
+      { label: "BISWAS magazine archive", url: "https://biswaroop.com/mz-biswas-download/" },
+    ],
+  },
+  {
+    slug: "publications",
+    title: "Dr BRC publications and research links",
+    description:
+      "Find Dr BRC’s official biography, selected books and research index, with context for reading different types of publication.",
+    heading: "Explore the published work.",
+    intro:
+      "Dr BRC’s official website brings together books, research links and educational publications. This page helps you find the original material and understand what you are reading.",
+    sections: [
+      {
+        title: "Books on nutrition and daily routines",
+        text: "The DIP Diet and The Circadian Doctor introduce two central parts of Dr BRC’s published approach. His official biography links to a broader catalogue of books and educational work.",
+      },
+      {
+        title: "Research: read the study type",
+        text: "The official research index includes case reports, observational work and trial-registration material. These serve different purposes. A case report describes a particular experience; a registered trial is not itself a published result. Review the original study and its limitations before drawing conclusions.",
+      },
+      {
+        title: "Bring evidence questions to your consultation",
+        text: "Ask which findings are relevant to your condition, what remains uncertain and how any recommendation will be monitored. A publication link or institutional name does not guarantee a treatment outcome or establish that a service is offered at this hospital.",
+      },
+    ],
+    sources: [
+      { label: "Dr BRC’s official research index", url: "https://biswaroop.com/research-papers/" },
+      { label: "Official biography and book catalogue", url: "https://biswaroop.com/about-us/" },
+      { label: "The Circadian Doctor publication", url: "https://biswaroop.com/product/the-circadian-doctor/" },
     ],
   },
   {
@@ -269,6 +336,50 @@ export const pages: ContentPage[] = [
         text: "Contact reception on +91 85120 40000 for corrections or concerns. Photography is credited separately; illustrative nature scenes do not depict the hospital grounds.",
       },
     ],
+  },
+];
+
+export const resources: {
+  title: string;
+  description: string;
+  url: string;
+  category: string;
+}[] = [
+  {
+    title: "The official DIP Diet guide",
+    description: "Read Dr BRC’s introduction to his three-step plant-based framework.",
+    url: "https://biswaroop.com/dipdiet/",
+    category: "Nutrition guide",
+  },
+  {
+    title: "The Circadian Doctor",
+    description: "A publication introducing Dr BRC’s Circadian Chart and daily-rhythm approach.",
+    url: "https://biswaroop.com/product/the-circadian-doctor/",
+    category: "Book",
+  },
+  {
+    title: "Free ebook collection",
+    description: "Browse the official library of downloadable reading in Hindi and English.",
+    url: "https://biswaroop.com/free_e_book/",
+    category: "Reading library",
+  },
+  {
+    title: "Research publications",
+    description: "Find the official index of case reports, studies and trial-registration links.",
+    url: "https://biswaroop.com/research-papers/",
+    category: "Research index",
+  },
+  {
+    title: "BISWAS magazine",
+    description: "Explore dated issues and language editions in the publication archive.",
+    url: "https://biswaroop.com/mz-biswas-download/",
+    category: "Magazine archive",
+  },
+  {
+    title: "About Dr Biswaroop Roy Chowdhury",
+    description: "Read his official biography and explore links to his books and educational work.",
+    url: "https://biswaroop.com/about-us/",
+    category: "Official biography",
   },
 ];
 

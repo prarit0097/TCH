@@ -2,15 +2,15 @@
 import Icon from './Icon.astro';
 import { hospital } from '../data/site';
 const path = Astro.url.pathname;
-const nav = [['/about/', 'Our hospital'], ['/circadian-approach/', 'Our approach'], ['/dip-diet/', 'DIP Diet'], ['/patient-guide/', 'Patient guide']];
+const nav = [['/about/', 'Our hospital'], ['/dr-biswaroop-roy-chowdhury/', 'Dr BRC'], ['/dip-diet/', 'DIP Diet'], ['/resources/', 'Resources'], ['/patient-guide/', 'Patient guide']];
 ---
 <a class="skip-link" href="#main">Skip to content</a>
-<div class="topbar"><div class="container"><span>Sector 89, Faridabad, Delhi NCR</span><a href={`tel:${hospital.phone}`}>Speak with reception <span>{hospital.displayPhone}</span></a></div></div>
+<div class="topbar"><div class="container"><span><Icon name="pin" size={14}/> Sector 89, Faridabad, Delhi NCR</span><a href={`tel:${hospital.phone}`}>Hospital reception <span>{hospital.displayPhone}</span></a></div></div>
 <header class="header">
   <div class="container nav-shell">
     <a class="brand" href="/" aria-label="The Circadian Hospital home">
-      <svg class="brand-symbol" viewBox="0 0 52 52" fill="none" aria-hidden="true"><circle cx="26" cy="26" r="22" stroke="currentColor" stroke-width="1.4"/><path d="M13 29a13 13 0 1 1 26 0M9 32h34M26 7v5M11 16l4 4M41 16l-4 4M17 38h18" stroke="currentColor" stroke-width="1.4"/><path d="M23 29c-2-5 1-9 7-10 1 5-1 9-7 10Z" fill="currentColor"/></svg>
-      <span class="brand-words"><span class="brand-name">The Circadian</span><span class="brand-hospital">Hospital</span></span>
+      <img class="brand-symbol" src="/brand/circadian-logo-256.webp" width="88" height="88" alt="Dr BRC Circadian Hospital official winged-horse logo"/>
+      <span class="brand-words"><span class="brand-owner">Dr BRC</span><span class="brand-name">Circadian Hospital</span><span class="brand-hospital">Faridabad</span></span>
     </a>
     <nav class="main-nav" aria-label="Main navigation" id="main-nav">{nav.map(([href, label]) => <a href={href} aria-current={path === href ? 'page' : undefined}>{label}</a>)}<a class="mobile-contact" href="/contact/">Contact reception</a></nav>
     <div class="nav-actions"><button class="icon-button theme-toggle" aria-label="Switch to dark mode" title="Change colour theme" data-theme-toggle><Icon name="moon" /><Icon name="sun" /></button><a class="button button-small header-visit" href="/contact/">Plan a visit <Icon name="northeast" size={17}/></a><button class="icon-button menu-toggle" aria-label="Open navigation" aria-controls="main-nav" aria-expanded="false" data-menu-toggle><Icon name="menu"/><Icon name="close"/></button></div>

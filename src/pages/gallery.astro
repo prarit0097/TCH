@@ -1,0 +1,13 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+const photographs = [
+ {src:'/images/brc/dr-brc-circadian-clock.webp',alt:'Dr BRC demonstrating a circadian clock during training in Malaysia',caption:'Explaining the Circadian Chart and daily rhythms, Malaysia, 21 August 2025.'},
+ {src:'/images/brc/dr-brc-speaking.webp',alt:'Dr Biswaroop Roy Chowdhury speaking at a training event in Malaysia',caption:'Dr BRC speaking at a health education session in Malaysia.'},
+ {src:'/images/brc/dr-brc-training.webp',alt:'Dr BRC with participants at an educational session in Malaysia',caption:'A training conversation with participants, Malaysia, August 2025.'},
+];
+---
+<Layout title="Dr BRC photo gallery — health education & circadian rhythms" description="Official photographs of Dr Biswaroop Roy Chowdhury explaining circadian rhythms and health education, sourced from biswaroop.com with accurate event captions.">
+ <section class="page-hero"><div class="container"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-current="page">Dr BRC gallery</span></nav><h1>Dr BRC, in conversation.</h1><p class="lead">A closer look at his health education work, from the official Dr BRC gallery.</p></div></section>
+ <section class="section"><div class="container"><div class="gallery-grid">{photographs.map(photo=><figure><img src={photo.src} alt={photo.alt} width="1800" height="1200" loading="lazy"/><figcaption>{photo.caption}</figcaption></figure>)}</div><div class="page-cta"><p class="lead">These are photographs of education events in Malaysia, not the Faridabad hospital premises.</p><a class="text-link" href="https://biswaroop.com/gallery/" target="_blank" rel="noopener noreferrer">Explore the official gallery <Icon name="northeast" size={18}/></a></div></div></section>
+</Layout>

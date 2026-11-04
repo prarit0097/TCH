@@ -13,8 +13,8 @@ Date: 4 November 2026. Production: https://thecircadianhospital.com. GitHub: htt
 
 ## Verified
 
-- Astro check: 0 errors, warnings or hints; 15 generated HTML pages.
-- Static checks: unique titles/descriptions, canonical URLs, JSON-LD, 354 local references and matching robots policy.
+- Astro check: 0 errors, warnings or hints; 18 generated HTML pages.
+- Static checks: unique titles/descriptions, canonical URLs, JSON-LD, 532 local references and matching robots policy.
 - Preview is noindex, production is indexable with the domain sitemap.
 - Local browser checks at 375/768/1440/1920px: no horizontal overflow, images loaded, navigation Escape behavior and persistent theme. Explicit WhatsApp preview fallback and no-JavaScript form protection checked.
 - Django tests: 7 pass locally and with PostgreSQL on the server. GitHub Actions also runs the PostgreSQL service-backed suite.
@@ -37,3 +37,7 @@ Enquiries are reviewed in the staff dashboard; email/SMS notifications are not c
 Nature and food photography is explicitly illustrative; actual facility photos, clinical team details and hours should be supplied before expanding those sections. Portrait comes from the owner-provided official Dr BRC source. Do not invent services, medical qualifications, ratings or cure claims.
 
 Hallmark rendered checks informed focus contrast, layout cap and controls. Its remaining strict house-style findings concern footer screen word density and section spacing; these are not represented as a clean Hallmark pass. Essential hospital navigation, address and medical context were retained. Impeccable's observed side-accent warning was resolved. Django's deployment check retains two intentional advisory warnings: HSTS does not claim all possible subdomains or preload eligibility. No subdomain-wide policy was imposed on the owner's domain.
+
+## Official brand redesign — 4 November 2026
+
+Owner-supplied logo preserved in original form and optimized variants. UI/UX Pro Max research and parallel content/photo research informed the new neutral, burgundy and gold design. Official Dr BRC photos, DIP illustrations, resources, publications and gallery added with source attribution. Enlarged-text navigation corrected after independent review. No backend or database changes in this release. Deploy the web service alone after GitHub push.

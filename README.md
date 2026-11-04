@@ -45,3 +45,5 @@ Reception views new requests in Django admin; no email/SMS delivery integration 
 ## Asset provenance and launch details
 
 `docs/asset-sources.md` and `/image-credits/` describe licences and attribution. Nature/food images are illustrative. The Dr BRC portrait comes from the official site supplied by the owner; confirm reuse rights. Replace illustrative nature with actual hospital photos when supplied. Confirm treating clinicians, hours, hospital legal operator/privacy contact and service availability before expanding clinical marketing pages. This website is not a patient-record or emergency-response system.
+
+Brand/content redesign checks: node scripts/redesign-check.mjs covers nine routes at four viewport widths, the official logo, enlarged-text navigation and reduced motion. Source/photo research is in docs/research; supplied logo originals are in public/brand.

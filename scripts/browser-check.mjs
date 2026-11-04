@@ -48,6 +48,7 @@ try {
   await page.goto(url, { waitUntil: 'networkidle0' });
   await page.evaluate(() => { localStorage.setItem('circadian-theme', 'light'); document.documentElement.dataset.theme = 'light'; });
   await page.screenshot({ path: '.qa/desktop-home.png', fullPage: true });
+  await page.screenshot({ path: '.qa/desktop-fold.png' });
   await page.goto(url + '/contact/', { waitUntil: 'networkidle0' });
   await page.screenshot({ path: '.qa/desktop-contact.png', fullPage: true });
   await page.setJavaScriptEnabled(false);
