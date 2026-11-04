@@ -11,12 +11,6 @@ Downloaded and visually inspected on 4 November 2026. All stock images are illus
 | `site/public/images/nutrition-apples.webp` | 1000 × 870 | Whole-food nutrition illustration | George Chernilevsky, **Apples in basket 2018 G1**. [Wikimedia source](https://commons.wikimedia.org/wiki/File:Apples_in_basket_2018_G1.jpg). Public-domain dedication by the author, verified on the source page. Resized and converted to WebP. |
 | `site/public/images/dr-brc.webp` | 600 × 900 | Actual Dr Biswaroop Roy Chowdhury portrait | [Official biography](https://biswaroop.com/about-us/), [original PNG](https://biswaroop.com/wp-content/uploads/2025/05/Dr-BiswaroopRoyChowdhury.png). Actual person, not generated. The user supplied this website for source material, but no open image licence was found: hospital owner must confirm portrait reuse permission before public launch. Converted to WebP, existing transparent background preserved. |
 
-`dr-brc-original.png` is retained as the downloaded source (600 × 900).
-
-## Additional stock option
-
-`site/public/images/nutrition-bowl.webp` (1000 × 667) is a photograph of a colourful vegetable bowl, downloaded from [Unsplash image CDN](https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1200&q=85). The [Unsplash licence](https://unsplash.com/license) permits free commercial image use. The individual photo page / photographer could not be independently resolved during this pass; prefer the fully traced Wikimedia assets until its individual provenance is confirmed. Do not claim that this bowl is served by the hospital or that it is an exact prescribed DIP Diet meal.
-
 ## Visible credit copy
 
 For any page using the two CC BY-SA photographs, expose credits on an accessible image-credits page linked from the footer:
