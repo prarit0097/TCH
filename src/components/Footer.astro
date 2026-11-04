@@ -1,0 +1,16 @@
+---
+import Icon from './Icon.astro';
+import { hospital } from '../data/site';
+---
+<footer class="footer">
+  <div class="container footer-main">
+    <div><a href="/" class="footer-brand">The Circadian Hospital</a><p>A different rhythm of care.<br/>Sector 89, Faridabad.</p><a class="footer-phone" href={`tel:${hospital.phone}`}>{hospital.displayPhone}</a></div>
+    <div><h2>Explore</h2><a href="/about/">Our hospital</a><a href="/dr-biswaroop-roy-chowdhury/">Meet Dr BRC</a><a href="/dip-diet/">DIP Diet</a><a href="/journal/">Health journal</a></div>
+    <div><h2>Plan your visit</h2><a href="/patient-guide/">Patient guide</a><a href="/contact/">Contact reception</a><a href={hospital.maps} target="_blank" rel="noopener noreferrer">Find our address <Icon name="northeast" size={15}/></a><a href={hospital.whatsapp} target="_blank" rel="noopener noreferrer">Message on WhatsApp</a></div>
+    <div class="footer-address"><h2>Find us in Faridabad</h2><p>{hospital.address}</p><p class="small">Please confirm availability and visit arrangements with reception.</p></div>
+  </div>
+  <div class="container footer-note"><p>Website information is educational. Do not change prescribed treatment without your treating clinician’s advice. For a medical emergency, seek urgent local medical care.</p></div>
+  <div class="container footer-bottom"><span>© {new Date().getFullYear()} The Circadian Hospital</span><div><a href="/privacy/">Privacy</a><a href="/terms/">Website terms</a><a href="/image-credits/">Photo credits</a></div></div>
+</footer>
+<a class="floating-whatsapp" href={`${hospital.whatsapp}?text=${encodeURIComponent('Hello, I would like information about The Circadian Hospital in Faridabad.')}`} target="_blank" rel="noopener noreferrer" aria-label="Contact reception on WhatsApp"><Icon name="whatsapp" size={27}/><span>Let’s talk</span></a>
+<div class="mobile-contact-bar"><a href={`tel:${hospital.phone}`}><Icon name="phone" size={19}/> Call reception</a><a href={hospital.whatsapp} target="_blank" rel="noopener noreferrer"><Icon name="whatsapp" size={20}/> WhatsApp</a></div>

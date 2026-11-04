@@ -1,0 +1,19 @@
+---
+import Icon from './Icon.astro';
+const api = import.meta.env.PUBLIC_ENQUIRY_API || '';
+---
+<form class="enquiry-form" data-enquiry-form data-api={api} method="post" action="/contact/">
+  <h2>{api ? 'Request a conversation.' : 'Start a conversation.'}</h2>
+  <p class="form-description">{api ? 'Share your contact details for reception follow-up. Your appointment is confirmed only when reception contacts you.' : 'Prepare a message, then send it in WhatsApp. Your details stay in your browser until you choose to send.'}</p>
+  <div class="field"><label for="enquiry-name">Your name</label><input id="enquiry-name" name="name" autocomplete="name" required minlength="2" maxlength="80" placeholder="Full name"/><span class="form-error" data-error-for="name" id="name-error"></span></div>
+  <div class="field"><label for="enquiry-phone">Mobile number</label><input id="enquiry-phone" name="phone" autocomplete="tel" type="tel" inputmode="tel" required minlength="10" maxlength="25" placeholder="10-digit Indian mobile" aria-describedby="phone-help phone-error"/><span id="phone-help" class="field-help">An Indian mobile number, with or without +91.</span><span class="form-error" data-error-for="phone" id="phone-error"></span></div>
+  <div class="field"><label for="enquiry-topic">How can we help?</label><select id="enquiry-topic" name="topic"><option>Plan a visit</option><option>DIP Diet information</option><option>Hospital information</option></select><span class="form-error" data-error-for="topic"></span></div>
+  <div class="honeypot" aria-hidden="true"><label for="website">Leave this field empty</label><input id="website" name="website" tabindex="-1" autocomplete="off"/></div>
+  <label class="consent-row"><input type="checkbox" name="consent" required/><span>I agree to be contacted about this enquiry and have read the <a href="/privacy/">privacy notice</a>.</span></label>
+  <span class="form-error" data-error-for="consent"></span>
+  <button class="button form-button" type="submit"><span data-submit-label>{api ? 'Send visit request' : 'Prepare WhatsApp message'}</span><Icon name={api ? 'northeast' : 'whatsapp'} size={19}/></button>
+  <p class="form-status" role="status" aria-live="polite" tabindex="-1" data-form-status></p>
+  <a class="text-link" data-whatsapp-result hidden target="_blank" rel="noopener noreferrer">Open WhatsApp to send <Icon name="northeast" size={17}/></a>
+  <p class="field-help" style="margin-top:var(--space-md)">Please do not share medical reports here. For urgent help, seek immediate medical care.</p>
+</form>
+<noscript><style>.enquiry-form{display:none!important}</style><p>This form needs JavaScript. Please call reception or use the WhatsApp link on this page.</p></noscript>

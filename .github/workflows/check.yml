@@ -1,0 +1,33 @@
+name: Website checks
+on: [push, pull_request]
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_PASSWORD: test-only-password
+          POSTGRES_USER: circadian
+          POSTGRES_DB: circadian
+        ports: ["5432:5432"]
+        options: --health-cmd "pg_isready -U circadian" --health-interval 10s --health-timeout 5s --health-retries 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run check && npm run build && npm run verify
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: pip install -r backend/requirements.txt
+      - run: python backend/manage.py test enquiries
+        env:
+          DJANGO_TESTING: 'true'
+          POSTGRES_HOST: localhost
+          POSTGRES_DB: circadian
+          POSTGRES_USER: circadian
+          POSTGRES_PASSWORD: test-only-password

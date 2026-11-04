@@ -1,0 +1,19 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+import { pages, articles, type ContentPage } from '../data/site';
+export function getStaticPaths() { return [...pages, ...articles].map(page => ({ params: { slug: page.slug }, props: { page } })); }
+interface Props { page: ContentPage }
+const { page } = Astro.props;
+const article = page.slug.startsWith('journal/');
+---
+<Layout title={page.title} description={page.description} image={page.image} isArticle={article}>
+  <section class="page-hero"><div class="container"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a>{article && <a href="/journal/">Health journal</a>}<span aria-current="page">{article ? 'Article' : page.title}</span></nav><h1>{page.heading}</h1><p class="lead">{page.intro}</p>{article && <p class="article-meta">Patient education from The Circadian Hospital. Sources listed below; no individual medical advice.</p>}</div></section>
+  <section class="section"><div class:list={['container', { 'reading-grid': !!page.image }]}>
+    {page.image && <figure class:list={['reading-image', { portrait: page.slug === 'dr-biswaroop-roy-chowdhury' }]}><img src={page.image} alt={page.alt} width={page.slug === 'dr-biswaroop-roy-chowdhury' ? 600 : 1000} height={page.slug === 'dr-biswaroop-roy-chowdhury' ? 900 : 870} loading="eager"/><figcaption>{page.caption}</figcaption></figure>}
+    <div class:list={['prose', { 'no-image': !page.image }]}>{page.sections.map(section => <section class="prose-section"><h2>{section.title}</h2><p>{section.text}</p>{section.items && <ul>{section.items.map(item => <li>{item}</li>)}</ul>}</section>)}
+      {page.sources && <section class="sources"><h2>Sources and further reading</h2>{page.sources.map(source => <a href={source.url} target="_blank" rel="noopener noreferrer">{source.label}</a>)}</section>}
+      <div class="page-cta"><p>For hospital information and visit arrangements, speak with reception.</p><a class="button" href="/contact/">Contact reception <Icon name="northeast" size={18}/></a></div>
+    </div>
+  </div></section>
+</Layout>

@@ -1,0 +1,62 @@
+import assert from 'node:assert/strict';
+import { mkdirSync, writeFileSync } from 'node:fs';
+import puppeteer from 'puppeteer-core';
+
+const url = process.env.QA_URL || 'http://127.0.0.1:4321';
+const browser = await puppeteer.launch({ executablePath: process.env.CHROME_PATH || 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe', headless: true });
+mkdirSync('.qa', { recursive: true });
+const results = [];
+try {
+  const page = await browser.newPage();
+  for (const width of [375, 768, 1440, 1920]) {
+    await page.setViewport({ width, height: 900 });
+    await page.goto(url, { waitUntil: 'networkidle0' });
+    await page.$$eval('img', images => images.forEach(image => image.loading = 'eager'));
+    await page.waitForFunction(() => Array.from(document.images).every(image => image.complete && image.naturalWidth > 0));
+    assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `Horizontal overflow at ${width}`);
+    assert.equal(await page.$$eval('h1', heads => heads.length), 1);
+    assert(await page.$$eval('img', images => images.every(image => image.complete && image.naturalWidth > 0)), 'Broken image');
+    results.push(`Layout ${width}px: no overflow, images loaded`);
+  }
+  await page.setViewport({ width: 375, height: 812 });
+  await page.goto(url, { waitUntil: 'networkidle0' });
+  await page.click('[data-menu-toggle]');
+  assert.equal(await page.$eval('[data-menu-toggle]', el => el.getAttribute('aria-expanded')), 'true');
+  await page.keyboard.press('Escape');
+  assert.equal(await page.$eval('[data-menu-toggle]', el => el.getAttribute('aria-expanded')), 'false');
+  await page.click('[data-theme-toggle]');
+  const theme = await page.$eval('html', el => el.dataset.theme);
+  await page.reload({ waitUntil: 'networkidle0' });
+  assert.equal(await page.$eval('html', el => el.dataset.theme), theme);
+  await page.screenshot({ path: '.qa/mobile-dark.png', fullPage: true });
+  results.push('Mobile menu Escape and persistent theme: PASS');
+  await page.goto(url + '/contact/', { waitUntil: 'networkidle0' });
+  assert.equal(await page.$eval('[data-enquiry-form]', el => el.getAttribute('method')), 'post');
+  assert.equal(await page.$eval('[data-whatsapp-result]', el => getComputedStyle(el).display), 'none');
+  await page.type('[name="name"]', 'QA Visitor');
+  await page.type('[name="phone"]', '8512040000');
+  await page.click('[name="consent"]');
+  await page.click('button[type="submit"]');
+  await page.waitForSelector('[data-whatsapp-result]:not([hidden])');
+  const whatsapp = await page.$eval('[data-whatsapp-result]', el => el.href);
+  assert(whatsapp.startsWith('https://wa.me/918512040000?text='));
+  assert(decodeURIComponent(whatsapp).includes('QA Visitor'));
+  assert((await page.$eval('[data-form-status]', el => el.textContent)).includes('No appointment is confirmed'));
+  results.push('Contact fallback: explicit WhatsApp message, no fake saved state');
+  await page.screenshot({ path: '.qa/mobile-contact.png', fullPage: true });
+  await page.setViewport({ width: 1440, height: 1000 });
+  await page.goto(url, { waitUntil: 'networkidle0' });
+  await page.evaluate(() => { localStorage.setItem('circadian-theme', 'light'); document.documentElement.dataset.theme = 'light'; });
+  await page.screenshot({ path: '.qa/desktop-home.png', fullPage: true });
+  await page.goto(url + '/contact/', { waitUntil: 'networkidle0' });
+  await page.screenshot({ path: '.qa/desktop-contact.png', fullPage: true });
+  await page.setJavaScriptEnabled(false);
+  await page.goto(url + '/contact/', { waitUntil: 'networkidle0' });
+  assert.equal(await page.$eval('[data-enquiry-form]', el => getComputedStyle(el).display), 'none');
+  await page.goto(url, { waitUntil: 'networkidle0' });
+  assert(await page.$('a[href="/contact/"]'));
+  assert(await page.$('a[href="tel:+918512040000"]'));
+  results.push('No-JavaScript: primary contact and call links present');
+  writeFileSync('.qa/browser-results.json', JSON.stringify(results, null, 2));
+  console.log(results.join('\n'));
+} finally { await browser.close(); }

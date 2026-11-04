@@ -1,0 +1,14 @@
+node_modules
+.venv
+dist
+.astro
+.git
+.env
+**/.env
+.qa
+.hallmark
+.impeccable
+backend/*.sqlite3
+backend/staticfiles
+**/__pycache__
+**/*.pyc

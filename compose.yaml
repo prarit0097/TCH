@@ -1,0 +1,52 @@
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: circadian
+      POSTGRES_USER: circadian
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U circadian -d circadian"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+    restart: unless-stopped
+  backend:
+    build:
+      context: .
+      dockerfile: deploy/Dockerfile.backend
+    environment:
+      DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY:?Set DJANGO_SECRET_KEY in .env}
+      DJANGO_DEBUG: "false"
+      DJANGO_ALLOWED_HOSTS: thecircadianhospital.com,www.thecircadianhospital.com
+      DJANGO_CSRF_TRUSTED_ORIGINS: https://thecircadianhospital.com,https://www.thecircadianhospital.com
+      POSTGRES_HOST: db
+      POSTGRES_DB: circadian
+      POSTGRES_USER: circadian
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      ENQUIRY_TRUST_PROXY: "true"
+    volumes:
+      - django_static:/app/staticfiles
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+  web:
+    build:
+      context: .
+      dockerfile: deploy/Dockerfile.frontend
+      args:
+        PUBLIC_INDEXABLE: "true"
+        PUBLIC_ENQUIRY_API: /api
+    ports:
+      - "127.0.0.1:8088:80"
+    volumes:
+      - django_static:/srv/django-static:ro
+    depends_on:
+      - backend
+    restart: unless-stopped
+volumes:
+  postgres_data:
+  django_static:

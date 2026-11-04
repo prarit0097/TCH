@@ -1,0 +1,10 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+import EnquiryForm from '../components/EnquiryForm.astro';
+import { hospital } from '../data/site';
+---
+<Layout title="Contact & visit enquiries — Sector 89, Faridabad" description="Call The Circadian Hospital on 8512040000. Find our address on Tikawali Road, Sector 89, Faridabad, or contact reception on WhatsApp.">
+  <section class="page-hero"><div class="container"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-current="page">Contact</span></nav><h1>Your next step starts here.</h1><p class="lead">Speak with reception about your visit, hospital information or the DIP Diet.</p></div></section>
+  <section class="section"><div class="container contact-grid"><div class="contact-info"><h2>Let’s talk.</h2><p>Tell reception what you need and confirm availability before you travel.</p><a class="contact-choice" href={`tel:${hospital.phone}`}><Icon name="phone" size={26}/><div><strong>{hospital.displayPhone}</strong><span>Call hospital reception</span></div><Icon name="northeast" size={18}/></a><a class="contact-choice" href={hospital.whatsapp} target="_blank" rel="noopener noreferrer"><Icon name="whatsapp" size={28}/><div><strong>Message on WhatsApp</strong><span>Send your enquiry directly</span></div><Icon name="northeast" size={18}/></a><div class="contact-address"><h2>Visit us in Faridabad.</h2><p>{hospital.address}</p><a class="text-link" href={hospital.maps} target="_blank" rel="noopener noreferrer">Find this address on Maps <Icon name="northeast" size={18}/></a><p class="small">This map searches our address. Call reception to confirm arrival instructions, consultation timings and access arrangements.</p></div></div><EnquiryForm/></div></section>
+</Layout>
